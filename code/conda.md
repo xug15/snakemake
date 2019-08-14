@@ -111,32 +111,34 @@ Windows Anaconda安装
 在您的浏览器中下载Windows的Anaconda安装程序，然后双击.exe文件，并按照屏幕上的说明进行操作。如果不确定任何设置，只需接受默认值，因为它们都可以稍​​后更改。
 注意：完成后，将打开一个新的终端窗口。如果没有，请单击开始 - 运行 - 命令提示符。
 
-Windows Anaconda更新
+* Windows Anaconda更新
 使用开始 - 运行 - 命令提示符打开终端窗口，导航到anaconda文件夹，然后键入conda update conda。
 
-Windows Anaconda卸载
+* Windows Anaconda卸载
 转到控制面板，单击“添加或删除程序”，选择“Python 2.7（Miniconda）”，然后单击删除程序。
 
-OS X Anaconda安装
+* OS X Anaconda安装
 在您的浏览器中下载OS X的Anaconda安装程序，然后双击.pkg文件，并按照屏幕上的说明进行操作。如果不确定任何设置，只需接受默认值，因为它们都可以稍​​后更改。
 注意：安装将在您关闭并重新打开终端窗口后才生效。
 
-OS X Anaconda更新
+* OS X Anaconda更新
 打开终端窗口，导航到anaconda目录，然后键入conda update conda。
 
-OS X Anaconda卸载
+* OS X Anaconda卸载
 要卸载Anaconda打开终端窗口并删除整个anaconda安装目录：rm -rf ~/anaconda。你也可以编辑~/.bash_profile并删除从你的PATH环境变量中删除anaconda目录，并删除隐藏.condarc文件以及可能已创建的.conda和.continuum目录在主目录下用rm -rf ~/.condarc ~/.conda ~/.continuum。
 
-Linux Anaconda安装
+* Linux Anaconda安装
 在您的浏览器中下载Linux的Anaconda安装程序，然后在您的终端窗口中键入以下内容并按照提示进行操作安装程序屏幕。如果不确定任何设置，只需接受默认值为他们都可以改变以后：
-
+```sh
 bash Anaconda-latest-Linux-x86_64.sh
+```
+
 注意：在您关闭并重新打开终端窗口后，安装才会生效。
 
-Linux Anaconda更新
+* Linux Anaconda更新
 在终端窗口中，键入以下命令：conda update conda。
 
-Linux Anaconda卸载
+* Linux Anaconda卸载
 要卸载Anaconda打开终端窗口并删除整个anaconda安装目录：rm -rf ~/anaconda。你也可以编辑~/.bash_profile并删除从你的PATH环境变量中删除anaconda目录，并删除隐藏.condarc文件以及可能已创建的.conda和.continuum目录在主目录下用rm -rf ~/.condarc ~/.conda ~/.continuum。
 
 ## 4. 测试(试驾)
@@ -154,44 +156,49 @@ TOTAL 30分钟
 
 提示：只要您想查看任何命令的完整文档，请键入命令后跟--help。
 例如，要了解conda update命令：
-
+```sh
 conda update --help
+```
+
 **4.1 管理conda**
 Conda既是包管理器，也是环境管理器。一个包管理器可以帮助你找到和安装软件包。使用几个命令，您可以设置一个完全独立的环境来运行不同版本的Python，然后继续在您的正常环境中运行您常用的Python版本。这就是像conda这样的环境管理工具的力量。
 
 提示：无论您是使用Linux，OS X还是Windows命令提示符，在终端窗口中输入的conda命令，除非另有说明，否则都是相同的。
 
-验证conda已安装
+* 验证conda已安装
 为了确保您在正确的地方开始，让我们验证您是否已成功安装Anaconda。在终端窗口中，输入以下内容：
-
+```sh
 conda --version
+```
 Conda将回复您已安装的版本号，如：conda 3.11.0
 
 注意：如果您看到错误消息，请检查您是否登录到安装Anaconda或Miniconda的帐户，并确保安装后已关闭并重新打开终端窗口。
 
 更新conda到当前版本
 接下来，让我们使用conda update命令更新conda：
-
+```sh
 conda update conda
+```
 Conda将比较版本，并让您知道可以安装的内容。它也会告诉你其他将随着更新自动更新或更改的软件包。
 
 如果有较新版本的conda，键入Y进行更新：
-
+```sh
 Proceed ([y]/n)? y
 conda更新完成后，来看下一个主题。
-
+```
 **4.2 管理环境**
 现在让我们通过创建几个环境，然后在它们之间移动来认识环境。
 
 创建并激活环境
 使用conda create命令，后跟任何你想调用它的名称：
-
+```sh
 conda create --name snowflakes biopython
+```
 这将创建一个名为/envs/snowflakes的环境，该环境包括程序Biopython。
 
 提示：两个破折号（--）后面的许多常用选项可以缩写为短划线和第一个字母。所以--name和-n选项是一样的，--envs和-e是一样的。见conda --help或conda -h查看缩写列表。
 
-激活新环境：
+* 激活新环境：
 
 Linux，OS X：source activate snowflakes
 Windows：activate snowflakes
@@ -199,10 +206,11 @@ Windows：activate snowflakes
 
 提示：由于我们没有指定Python版本，conda安装的版本与安装conda时使用的Python版本一致。
 
-创建第二个环境
+* 创建第二个环境
 这次让我们创建和命名一个新的环境，并安装不同版本的Python和两个包命名为Astroid和Babel：
-
+```sh
 conda create --name bunnies python=3 astroid babel
+```
 这将创建第二个新的环境，名为 /envs/bunnies，且包含Python3和Astroid、Babel。
 
 提示：在此环境中应该同时安装所需的所有程序。一次只安装一个可能导致依赖冲突。
@@ -211,8 +219,9 @@ conda create --name bunnies python=3 astroid babel
 
 列出所有环境
 现在让我们检查到目前为止已经安装了哪些环境。使用conda environment info命令找出：
-
+```sh
 conda info --envs
+```
 您将看到如下所示的环境列表：
 
 ```sh
@@ -223,8 +232,9 @@ conda environments:
 ```
 验证当前环境
 你现在使用哪个环境呢 —— snowflakes 还是 bunnies？可以输入同样的命令来查看：
-
+```sh
 conda info --envs
+```
 Conda显示所有环境的列表，当前环境显示在前面的提示（括号）或[括号]中：
 
 (snowflakes)
@@ -283,23 +293,26 @@ conda search --full-name python
 
 安装不同版本的Python
 假如你需要Python3来学习编程，但你不想通过更新来覆盖你的Python2.7环境。你可以创建并激活名为snakes的新环境，然后安装最新版本的Python3，命令如下：
-
+```sh
 conda create --name snakes python=3
 Linux，OS X：source activate snakes
 Windows：activate snakes
+```
 提示：明智的做法是将这个环境命名为python这样的描述性名称。
 
 验证添加的环境
 要验证是否已添加了snakes环境，请键入以下命令：
-
+```sh
 conda info --envs
+```
 Conda显示所有环境的列表，当前环境显示在前面的提示中的（括号）或[括号]里：
 
 (snakes)
 在新环境中验证Python版本
 验证snakes环境使用Python3版本：
-
+```sh
 python --version
+```
 使用不同版本的Python
 要切换到新环境使用不同版本的Python，只需要激活它。让我们切换回默认值，2.7：
 
@@ -322,6 +335,7 @@ Windows：deactivate
 使用此选项可查看环境中安装的是哪个版本的Python或其他程序，或者确认已添加或删除了包。在您的终端窗口中，只需键入：
 ```sh
 conda list
+```
 **
 用conda install命令查看使可用的软件包列表
 
@@ -330,15 +344,17 @@ conda list
 搜索包
 
 首先让我们检查一下我们想要的软件包是否可供conda安装：
-
+```sh
 conda search beautifulsoup4
+```
 这将显示包，因此我们知道它是可用的。
 
 安装新软件包
 
 我们将在当前环境中安装Beautiful Soup，使用conda安装如下：
-
+```sh
 conda install --name bunnies beautifulsoup4
+```
 注意：你必须告诉conda环境的名称（--name bunnies），否则它将安装在当前环境。
 
 现在激活bunnies环境，并做一个conda列表看到安装的新程序：
@@ -346,8 +362,9 @@ conda install --name bunnies beautifulsoup4
 Linux，OS X：source activate bunnies
 Windows：activate bunnies
 所有平台：
-
+```sh
 conda list
+```
 从Anaconda.org安装软件包
 对于使用conda install不可用的软件包，我们接下来看看Anaconda.org。Anaconda.org是一个用于公共和私人包存储库的包管理服务。Anaconda.org是Continuum Analytics产品，就像Anaconda和Miniconda。
 
@@ -363,8 +380,9 @@ conda list
 
 conda install --channel https://conda.anaconda.org/pandas bottleneck
 检查包下载是否正确
-
+```sh
 conda list
+```
 使用pip安装软件包
 对于conda或Anaconda.org不提供的软件包，我们经常可以使用pip（“pip installs packages”的缩写）来安装软件包。
 
@@ -375,17 +393,20 @@ conda list
 Linux，OS X：source activate bunnies
 Windows：activate bunnies
 所有平台：
-
+```sh
 pip install see
+```
 验证pip安装
 
 检查看是否已安装：
-
+```sh
 conda list
+```
 安装商业包
 安装商业包与用conda安装任何其他包相同。因此，作为示例，让我们安装，然后删除Continuum的商业包IOPro的试用版，这可以加速你的Python处理：
-
+```sh
 conda install iopro
+```
 提示：除了学术用途，此免费试用期在30天后过期。
 
 现在，您可以使用conda命令，从Anaconda.org下载或使用pip install安装和验证任何您想使用conda的软件包，无论是开源还是商业。
@@ -395,29 +416,34 @@ conda install iopro
 
 删除包
 如果你决定不继续使用商业包IOPro，您可以从bunnies环境中删除它：
-
+```sh
 conda remove --name bunnies iopro
+```
 确认程序已删除
 
 使用conda列表确认IOPro已被删除：
-
+```sh
 conda list
+```
 删除环境
 我们不再需要snakes环境，因此输入命令：
-
+```sh
 conda remove --name snakes --all
+```
 验证环境已删除
 
 要验证蛇的环境现在已被删除，请键入命令：
-
+```sh
 conda info --envs
+```
 Snakes不再显示在环境列表中，因此我们知道它已被删除。
 
 删除conda
 Linux，OS X：
 删除Anaconda或Miniconda安装目录：
-
+```sh
 rm -rf ~/miniconda OR  rm -rf ~/anaconda
+```
 Windows：转到控制面板，单击“添加或删除程序”，选择“Python 2.7（Anaconda）”或“Python 2.7 Miniconda”），然后单击删除程序。
 更多资源
 要读取任何conda命令的完整文档，请键入命令,后面加-h代表“帮助”。例如，了解conda更新命令：conda update -h
